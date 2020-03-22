@@ -1,4 +1,8 @@
 #! /usr/bin/python3
+
+# This whole wrapper is a workaround for "Argument list too long" bash/zsh error.
+# We can't use AWS CLI directly, because --payload parameter must be a command line argument.
+
 import boto3
 import base64
 
@@ -18,4 +22,4 @@ with open(OUTPUT_FILE, 'wb') as output_file:
     output_payload = response['Payload'].read().replace(b'"', b'')
     output_data = base64.b64decode(output_payload)
     output_file.write(output_data)
-    print('Wrote output file ' + OUTPUT_FILE)
+    print('Wrote output file ' + OUTPUT_FILE + '.')

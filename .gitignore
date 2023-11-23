@@ -35,4 +35,3 @@ out/
 .terraform/
 *.tfstate
 *.backup
-output.jpg
